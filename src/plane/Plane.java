@@ -57,11 +57,11 @@ public class Plane implements Serializable {
         landingGear = !landingGear;
     }
 
-    public void ejectionSystem() {
+    public void toggleEjectionSystem() {
         ejectionSystem = !ejectionSystem;
     }
 
-    public void ejectPilot(boolean pilotSeated) {
+    public void ejectPilot() {
         if (this.ejectionSystem == false){
             System.out.println(" El sistema de eyeccion no está activado ");
         }else if (this.seatOccupation == false){
@@ -71,6 +71,23 @@ public class Plane implements Serializable {
             this.seatOccupation = false;
         }
 
+    }
+
+    public boolean flapStatus() {
+        return flaps;
+    }
+
+    public boolean landingGearStatus() {
+        return landingGear;
+    }
+
+    public boolean ejectionSystemStatus() {
+        return ejectionSystem;
+    }
+
+    public void  printPlaneStatus(){
+        System.out.println("Estado del F18: \n");
+        System.out.println(this.toString());
     }
 
     @Override
