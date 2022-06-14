@@ -23,7 +23,7 @@ public class Plane implements Serializable {
         this.landingGear = false;
         this.ejectionSystem = false;
         this.seatOccupation = true;
-        this.asciiRepresentation = "                               ._                             \n" +
+        this.asciiRepresentation = "                                                         \n" +
                 "                              |* ;                            \n" +
                 "            `*-.              |\"\":                            \n" +
                 "             \\  \\             |\"\"                             \n" +
