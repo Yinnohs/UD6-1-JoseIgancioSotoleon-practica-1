@@ -13,12 +13,40 @@ public class Plane implements Serializable {
 
     private boolean seatOccupation;
 
+    private String asciiRepresentation;
+
     public Plane(float fuelLevel, String pilotCallSign, String squadNumber) {
         this.fuelLevel = fuelLevel;
         this.pilotCallSign = pilotCallSign;
         this.squadNumber = squadNumber;
-
-        // Completa el código para cumplir con los requisitos.
+        this.flaps = true;
+        this.landingGear = false;
+        this.ejectionSystem = false;
+        this.seatOccupation = true;
+        this.asciiRepresentation = "                               ._                             \n" +
+                "                              |* ;                            \n" +
+                "            `*-.              |\"\":                            \n" +
+                "             \\  \\             |\"\"                             \n" +
+                "              .  \\            |   :                           \n" +
+                "              `   \\           |                               \n" +
+                "               \\   \\          |    ;               +.         \n" +
+                "                .   \\         |                   *._`-.      \n" +
+                "                `    \\        |     :          .-*'  `. `.    \n" +
+                "                _\\    \\.__..--**--...L_   _.-*'      .'`*'    \n" +
+                "               /  `*-._\\   -.       .-*\"*+._       .'         \n" +
+                "              :        ``*-._*.     \\      _J.   .'           \n" +
+                "          .-*'`*-.       ;     `.    \\    /   `.'             \n" +
+                "      .-*'  _.-*'.     .-'       `-.  `-.:   _.'`-.           \n" +
+                "   +*' _.-*'      `..-'             `*-. `**'      `-.        \n" +
+                "    `*'          .-'      ._            `*-._         `.      \n" +
+                "             .-'         `.`-.____..+-**\"\"'         .*\"`.    \n" +
+                "         ._.-'          _.-*'':$$$;._$              /     `.  \n" +
+                "      .-'  `.      _.-*' `*-.__T$P   `\"**--..__    :        `.\n" +
+                ".'..-'       \\_.-*'                            `\"**--..___.-*'\n" +
+                "`. `.    _.-*'                                                \n" +
+                "  `. `:*'                                                     \n" +
+                "    `. `.                                                     \n" +
+                "      `*";
     }
 
     public void toggleFlaps() {
@@ -33,8 +61,16 @@ public class Plane implements Serializable {
         ejectionSystem = !ejectionSystem;
     }
 
-    public void setSeatOccupation(boolean pilotSeated) {
-        seatOccupation = pilotSeated;
+    public void ejectPilot(boolean pilotSeated) {
+        if (this.ejectionSystem == false){
+            System.out.println(" El sistema de eyeccion no está activado ");
+        }else if (this.seatOccupation == false){
+            System.out.println(" No hay piloto en el avión");
+        }else {
+            System.out.println(" Eyectado al Piloto ");
+            this.seatOccupation = false;
+        }
+
     }
 
     @Override
@@ -47,6 +83,7 @@ public class Plane implements Serializable {
                 ", landingGear=" + landingGear +
                 ", ejectionSystem=" + ejectionSystem +
                 ", seatOccupation=" + seatOccupation +
+                ", representation = " + this.asciiRepresentation +
                 '}';
     }
 }
